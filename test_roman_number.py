@@ -26,3 +26,10 @@ class TestParse(TestCase):
             self.assertEqual(num, n)
             n = n + 1
 
+    def test_parse_tens(self):
+        n = 1
+        for unit in ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']:
+            num = roman_number.parse(unit)
+            self.assertEqual(num, n * 10)
+            n = n + 1
+
