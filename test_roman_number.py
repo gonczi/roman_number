@@ -33,3 +33,14 @@ class TestParse(TestCase):
             self.assertEqual(num, n * 10)
             n = n + 1
 
+    def test_parse_hudreds(self):
+        n = 1
+        for tens in ['C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']:
+            num = roman_number.parse(tens)
+            self.assertEqual(num, n * 100)
+            n = n + 1
+
+    def test_parse_below_999(self):
+        self.assertEqual(39, roman_number.parse("XXXIX"))
+        self.assertEqual(246, roman_number.parse("CCXLVI"))
+        self.assertEqual(789, roman_number.parse("DCCLXXXIX"))
