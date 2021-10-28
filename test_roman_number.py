@@ -12,7 +12,7 @@ class TestParse(TestCase):
         self.assertEqual(num, -1)
 
     def test_parse_contains_roman_numbers_only(self):
-        num = roman_number.parse("IICCCMMMX")
+        num = roman_number.parse("MCLXVI")
         self.assertNotEqual(num, -1)
 
     def test_parse_contains_roman_numbers_only_neg(self):
@@ -44,3 +44,6 @@ class TestParse(TestCase):
         self.assertEqual(39, roman_number.parse("XXXIX"))
         self.assertEqual(246, roman_number.parse("CCXLVI"))
         self.assertEqual(789, roman_number.parse("DCCLXXXIX"))
+
+    def test_parse_wrong_format(self):
+        self.assertEqual(-1, roman_number.parse("XXXIXXXXIX"))
