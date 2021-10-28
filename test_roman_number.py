@@ -40,10 +40,11 @@ class TestParse(TestCase):
             self.assertEqual(num, n * 100)
             n = n + 1
 
-    def test_parse_below_999(self):
+    def test_parse_below_3999(self):
         self.assertEqual(39, roman_number.parse("XXXIX"))
         self.assertEqual(246, roman_number.parse("CCXLVI"))
         self.assertEqual(789, roman_number.parse("DCCLXXXIX"))
+        self.assertEqual(2421, roman_number.parse("MMCDXXI"))
 
     def test_parse_wrong_format(self):
         self.assertEqual(-1, roman_number.parse("XXXIXXXXIX"))
