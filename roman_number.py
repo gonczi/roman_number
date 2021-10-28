@@ -19,4 +19,11 @@ def parse(s):
             s = s[:-1 * len(unit)]
             res = units[unit]
 
+    units = {'XC': 90, 'LXXX': 80, 'LXX': 70, 'LX': 60, 'XL': 40, 'L': 50, 'XXX': 30, 'XX': 20, 'X': 10}
+    for unit in units.keys():
+        tail = s[-1 * len(unit):]
+        if tail == unit:
+            s = s[:-1 * len(unit)]
+            res = res + units[unit]
+
     return res
