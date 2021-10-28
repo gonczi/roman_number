@@ -19,3 +19,10 @@ class TestParse(TestCase):
         num = roman_number.parse("IICCCMMMeX")
         self.assertEqual(num, -1)
 
+    def test_parse_units(self):
+        n = 1
+        for unit in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']:
+            num = roman_number.parse(unit)
+            self.assertEqual(num, n)
+            n = n + 1
+
